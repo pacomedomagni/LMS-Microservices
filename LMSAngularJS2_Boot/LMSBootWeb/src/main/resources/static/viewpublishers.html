@@ -1,0 +1,67 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div class="container marketing" ng-controller="publisherController">
+	<h3>List of publishers in LMS:</h3>
+	<input type="text" ng-model="searchString" ng-change="searchPublishers()">
+
+	<div class="col-md-10">
+		<ul class="pagination">
+			<li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>
+			<li ng-repeat="n in [] | range: pagination.numPages"
+				ng-class="{active: n == pagination.page}"><a href=""
+				ng-click="pagination.toPageId(n)">{{n + 1}}</a></li>
+			<li><a href="" ng-click="pagination.nextPage()">&raquo;</a></li>
+		</ul>
+	</div>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th>#</th>
+				<th>Publisher Name</th>
+				<th>Publisher Address</th>
+				<th>Publisher Phone</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="p in publishers | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+				<td>{{$index+1}}</td>
+				<td>{{p.publisherName}}</td>
+				<td>{{p.publisherAddress}}</td>
+				<td>{{p.publisherPhone}}</td>
+				<td><button type="button" class="btn btn-basic"
+						data-toggle="modal" data-target="editPublisherModal"
+						ng-click='openModal(b.publisherId)'>Edit</button></td>
+				<td><button type="button" class="btn btn-info"
+						ng-click="deletePublisher(b.publisherId)">Delete</button></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<!-- Modal -->
+	<div modal="editPublisherModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close" ng-click="close()">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<h6>Enter Publisher Details to Edit</h6>
+					<input type="text" ng-model="publisher.publisherName"
+						value="{{publisher.publisherName}}">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal" ng-click="close()">Close</button>
+					<button type="button" class="btn btn-primary" ng-click="save(publisher.publisherName)">Save
+						changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

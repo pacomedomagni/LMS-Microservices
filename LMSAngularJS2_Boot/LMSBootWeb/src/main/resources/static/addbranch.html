@@ -1,0 +1,16 @@
+<div class="container marketing" ng-controller="branchController">
+	<h3>Enter details to Add Branch:</h3>
+	<form>
+		<div class="form-group">
+			<label for="title">Enter Branch name: </label> <input
+				type="text" class="form-control" ng-model="branch.branchName" placeholder="Branch Name">
+		</div>
+		<div class="form-group">
+			<label for="title">Enter Branch Address </label> <input
+				type="text" class="form-control" ng-model="branch.branchAddress" placeholder="Branch Address">
+		</div>
+		
+		<button type="button" class="btn btn-primary" ng-click="saveBranch()">Save
+			Branch</button>
+	</form>
+</div>

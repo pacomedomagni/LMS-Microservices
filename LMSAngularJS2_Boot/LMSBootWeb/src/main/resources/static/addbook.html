@@ -1,0 +1,16 @@
+<div class="container marketing" ng-controller="bookController">
+	<h3>Enter details to Add Book:</h3>
+	<form>
+		<div class="form-group">
+			<label for="title">Enter Book title: </label> <input
+				type="text" class="form-control" ng-model="book.title" placeholder="Book title">
+		</div>
+		<div class="form-group">
+			<label for="title">Enter Publisher Id: </label> <input
+				type="text" class="form-control" ng-model="book.pubId" placeholder="Publisher Id">
+		</div>
+		
+		<button type="button" class="btn btn-primary" ng-click="saveBook()">Save
+			Book</button>
+	</form>
+</div>

@@ -1,0 +1,20 @@
+<div class="container marketing" ng-controller="PublisherController">
+	<h3>Enter details about the new Publisher:</h3>
+	<form>
+		<div class="form-group">
+			<label for="title">Enter Publisher Name: </label> <input
+				type="text" class="form-control" ng-model="publisher.publisherName" placeholder="Publisher Name">
+		</div>
+		<div class="form-group">
+			<label for="title">Enter Publisher address </label> <input
+				type="text" class="form-control" ng-model="publisher.publisherAddress" placeholder="Publisher Address">
+		</div>
+		<div class="form-group">
+			<label for="title">Enter Publisher phone </label> <input
+				type="text" class="form-control" ng-model="publisher.publisherPhone" placeholder="Publisher Phone">
+		</div>
+		
+		<button type="button" class="btn btn-primary" ng-click="savePublisher()">Save
+			Publisher</button>
+	</form>
+</div>

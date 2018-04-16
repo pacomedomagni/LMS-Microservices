@@ -1,0 +1,16 @@
+<div class="container marketing" ng-controller="authorController">
+	<h3>Enter details about the book to return:</h3>
+	<form>
+		<div class="form-group">
+			<label for="authorName">Enter Book identification: </label> <input
+				type="text" class="form-control" ng-model="branch.branchName" placeholder="Branch Name">
+		</div>
+		<div class="form-group">
+			<label for="authorName">Enter Branch identification: </label> <input
+				type="text" class="form-control" ng-model="branch.branchAddress" placeholder="Branch Address">
+		</div>
+		
+		<button type="button" class="btn btn-primary" ng-click="saveReturnBook()">Return Book
+			</button>
+	</form>
+</div>
